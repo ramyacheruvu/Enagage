@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h5 style="text-align:left"> Web Pages  </h5>
+    </div>
+    <div class="col-sm-6" style="text-align:right">
+      <a class="btn btn-dark btn-sm " [routerLink]="['/web-page-edit','']">
+        Add New
+      </a>
+    </div>
+  </div>
+  <br />
+  <br />
+
+  <div class="row">
+    <p *ngIf="!webPages.length"><em>Please add data . Currently no data available</em></p>
+    <div class="col-sm-3" *ngFor="let page of webPages">
+      <div class="card" [routerLink]="['/web-page-edit', page.id]">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{page.webPageTitle}}
+          </h5>
+          <p class="card-text">
+            <span style="color: #6600ff;">Title:</span> {{page.webPageName}}
+            <br />
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+</div>

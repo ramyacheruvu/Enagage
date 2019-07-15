@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h5 style="text-align:left"> Categories </h5>
+    </div>
+    <div class="col-sm-6" style="text-align:right">
+      <a class="btn btn-dark btn-sm " [routerLink]="['/category-edit','']">
+        Add New
+      </a>
+    </div>
+  </div>
+  <br />
+  <br />
+
+  <div class="row">
+    <p *ngIf="!categories.length"><em>Please add data . Currently no data available</em></p>
+    <div class="col-sm-3" *ngFor="let category of categories">
+      <div class="card" [routerLink]="['/category-edit', category.id]">
+        <div class="card-body">
+          <h5 class="card-title">
+            Category Name:
+          </h5>
+          <p class="card-text">
+            {{category.webPageCategoryName}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+</div>

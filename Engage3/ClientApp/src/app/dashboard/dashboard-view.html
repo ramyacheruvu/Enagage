@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="split left" style="overflow-x:hidden !important;padding-top:50px;">
+    <label>List of Modules</label>
+    <ul class="pac-man">
+      <ng-template #recursiveList let-list>
+        <li *ngFor="let item of list">
+          <span style="color: #6600ff;">{{item.WebPageCategoryName}}</span>
+          <br />
+          <span *ngFor="let webPage of item.WebPages">
+            <span (click)="GetWebPageData(webPage.id)">
+              <i class="material-icons">language</i>
+              {{webPage.webPageName}}
+            </span>
+            <br />
+          </span>
+          <ul *ngIf="item.ChildCategories.length > 0">
+            <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.ChildCategories }">
+            </ng-container>
+          </ul>
+          <br />
+        </li>
+      </ng-template>
+      <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: list }"></ng-container>
+    </ul>
+  </div>
+  <div split right style="padding-top:50px;padding-left:150px; height:100% ">
+    <div class="card" style="height:800px;" *ngIf="cardVisibile">
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p [innerHTML]="data"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
