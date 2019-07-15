@@ -83,5 +83,4 @@ interface Category
   id: number;
   webPageCategoryName: string;
   parentCategoryId: number;
-  displayOrder: number;
 }
