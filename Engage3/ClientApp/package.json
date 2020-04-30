@@ -33,7 +33,7 @@
     "bootstrap": "4.3.1",
     "core-js": "^2.5.4",
     "expired-storage": "1.0.2",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "ngx-logger": "3.3.12",
     "popper.js": "1.15.0",
     "rxjs": "6.4.0",
